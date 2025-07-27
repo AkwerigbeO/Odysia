@@ -23,7 +23,7 @@ export default function Testimonials() {
               </div>
             </div>
             <p className="text-gray-700">
-              "Odysia connected us with an amazing developer who built our MVP in record time. The escrow system gave us peace of mind throughout the project."
+              &quot;Odysia connected us with an amazing developer who built our MVP in record time. The escrow system gave us peace of mind throughout the project.&quot;
             </p>
           </div>
           
@@ -38,7 +38,7 @@ export default function Testimonials() {
               </div>
             </div>
             <p className="text-gray-700">
-              "As an expert on Odysia, I've found consistent, well-paying projects. The platform handles all the logistics so I can focus on coding."
+              &quot;As an expert on Odysia, I&apos;ve found consistent, well-paying projects. The platform handles all the logistics so I can focus on coding.&quot;
             </p>
           </div>
           
@@ -53,7 +53,7 @@ export default function Testimonials() {
               </div>
             </div>
             <p className="text-gray-700">
-              "The quality of clients and projects on Odysia is outstanding. Payment protection and professional support make it my go-to platform."
+              &quot;The quality of clients and projects on Odysia is outstanding. Payment protection and professional support make it my go-to platform.&quot;
             </p>
           </div>
         </div>

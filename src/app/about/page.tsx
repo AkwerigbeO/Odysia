@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import ContactForm from '@/components/ContactForm'
+import About from '@/components/About'
 import { LOGO } from '@/assets'
 
-export default function ContactPage() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,14 +19,14 @@ export default function ContactPage() {
           </div>
           
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Get In Touch
+            About Odysia
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to transform your business? Let&apos;s discuss how we can help you achieve your technology goals.
+            Learn more about our mission to connect businesses with exceptional tech talent.
           </p>
         </div>
         
-        <ContactForm />
+        <About />
       </div>
     </div>
   )
