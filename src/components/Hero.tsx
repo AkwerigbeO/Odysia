@@ -1,83 +1,239 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { HERO_CONTENT } from '@/constants/hero'
 import { LOGO } from '@/assets'
+import { 
+  fadeInUp, 
+  fadeInDown, 
+  staggerContainer, 
+  staggerItem, 
+  floating, 
+  parallax,
+  hoverScale,
+  buttonTap
+} from '@/lib/animations'
+import { useTypewriter, useCounter, useIsMobile, useTouchGestures } from '@/lib/hooks'
 
 export default function Hero() {
+  const typewriterText = useTypewriter(HERO_CONTENT.title, 50)
+  const projectCount = useCounter(500, 3000)
+  const successRate = useCounter(98, 2000)
+  const isMobile = useIsMobile()
+
+  const { onTouchStart, onTouchMove, onTouchEnd } = useTouchGestures(
+    () => console.log('Swipe left'),
+    () => console.log('Swipe right')
+  )
+
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 via-white to-primary-100 py-20 overflow-hidden">
-      {/* Background decoration */}
+    <section 
+      className="relative bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-dark-bg dark:via-dark-surface dark:to-dark-card py-20 overflow-hidden min-h-screen flex items-center transition-colors duration-300"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* Animated background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full opacity-20"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-300 rounded-full opacity-20"></div>
+        <motion.div 
+          className="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 dark:bg-primary-800 rounded-full opacity-20"
+          variants={floating}
+          animate="animate"
+        />
+        <motion.div 
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-300 dark:bg-primary-700 rounded-full opacity-20"
+          variants={floating}
+          animate="animate"
+          transition={{ delay: 1 }}
+        />
+        
+        {/* Additional floating elements */}
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-4 h-4 bg-primary-400 dark:bg-primary-600 rounded-full opacity-60"
+          variants={floating}
+          animate="animate"
+          transition={{ delay: 0.5, duration: 4 }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-primary-500 dark:bg-primary-500 rounded-full opacity-40"
+          variants={floating}
+          animate="animate"
+          transition={{ delay: 1.5, duration: 5 }}
+        />
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* Logo */}
-          <div className="flex justify-center mb-8 animate-fade-in">
-            <Image
-              src={LOGO}
-              alt="Odysia Logo"
-              width={200}
-              height={80}
-              className="h-32 w-auto"
-              priority
-            />
-          </div>
+        <motion.div 
+          className="text-center"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Logo with enhanced animation */}
+          <motion.div 
+            className="flex justify-center mb-8"
+            variants={staggerItem}
+          >
+            <motion.div
+              variants={hoverScale}
+              whileHover="hover"
+            >
+              <Image
+                src={LOGO}
+                alt="Odysia Logo"
+                width={200}
+                height={80}
+                className="h-32 w-auto"
+                priority
+              />
+            </motion.div>
+          </motion.div>
           
-          {/* Animated headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-delay">
-            {HERO_CONTENT.title}
-          </h1>
+          {/* Animated headline with typewriter effect */}
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+            variants={fadeInUp}
+          >
+            {typewriterText}
+            <motion.span
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+              className="inline-block ml-1"
+            >
+              |
+            </motion.span>
+          </motion.h1>
           
           {/* Animated subtitle */}
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-4xl mx-auto animate-fade-in-delay">
+          <motion.p 
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto"
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+          >
             {HERO_CONTENT.subtitle}
-          </p>
+          </motion.p>
           
-          {/* Feature badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-delay-2">
+          {/* Feature badges with stagger animation */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4 mb-12"
+            variants={staggerContainer}
+          >
             {HERO_CONTENT.features.map((feature, index) => (
-              <span
+              <motion.span
                 key={feature}
-                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white text-primary-700 border border-primary-200 shadow-sm"
+                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-dark-card text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-700 shadow-sm hover:shadow-md transition-shadow"
+                variants={staggerItem}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
+                }}
               >
-                <svg className="w-4 h-4 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                <motion.svg 
+                  className="w-4 h-4 mr-2 text-primary-500" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
+                </motion.svg>
                 {feature}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
-            <Link
-              href="/contact"
-              className="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+          {/* CTA Buttons with enhanced hover effects */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            variants={fadeInUp}
+            transition={{ delay: 0.4 }}
+          >
+            <motion.div
+              variants={buttonTap}
+              whileTap="tap"
             >
-              {HERO_CONTENT.primaryCTA}
-            </Link>
-            <Link
-              href="/experts"
-              className="border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-600 hover:text-white transform hover:scale-105 transition-all duration-200"
+              <Link
+                href="/contact"
+                className="bg-primary-600 dark:bg-primary-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block"
+              >
+                {HERO_CONTENT.primaryCTA}
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={buttonTap}
+              whileTap="tap"
             >
-              {HERO_CONTENT.secondaryCTA}
-            </Link>
-          </div>
+              <Link
+                href="/experts"
+                className="border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-600 dark:hover:bg-primary-500 hover:text-white dark:hover:text-white transform hover:scale-105 transition-all duration-200 inline-block"
+              >
+                {HERO_CONTENT.secondaryCTA}
+              </Link>
+            </motion.div>
+          </motion.div>
           
-          {/* Trust indicators */}
-          <div className="mt-16 animate-fade-in-delay-4">
-            <p className="text-sm text-gray-500 mb-4">Trusted by leading companies</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-gray-400 text-sm font-medium">TechCorp</div>
-              <div className="text-gray-400 text-sm font-medium">InnovateLab</div>
-              <div className="text-gray-400 text-sm font-medium">StartupHub</div>
-              <div className="text-gray-400 text-sm font-medium">DigitalFlow</div>
-            </div>
-          </div>
-        </div>
+          {/* Animated statistics */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12"
+            variants={fadeInUp}
+            transition={{ delay: 0.6 }}
+          >
+            <motion.div 
+              className="text-center p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
+              whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+            >
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                {projectCount}+
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">Projects Completed</div>
+            </motion.div>
+            <motion.div 
+              className="text-center p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
+              whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+            >
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                {successRate}%
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">Success Rate</div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Trust indicators with enhanced animation */}
+          <motion.div 
+            className="mt-16"
+            variants={fadeInUp}
+            transition={{ delay: 0.8 }}
+          >
+            <motion.p 
+              className="text-sm text-gray-500 dark:text-gray-400 mb-4"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Trusted by leading companies
+            </motion.p>
+            <motion.div 
+              className="flex justify-center items-center space-x-8 opacity-60"
+              variants={staggerContainer}
+            >
+              {['TechCorp', 'InnovateLab', 'StartupHub', 'DigitalFlow'].map((company, index) => (
+                <motion.div 
+                  key={company}
+                  className="text-gray-400 dark:text-gray-500 text-sm font-medium"
+                  variants={staggerItem}
+                  whileHover={{ 
+                    scale: 1.1, 
+                    color: '#9333ea',
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {company}
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

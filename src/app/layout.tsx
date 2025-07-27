@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import AnimatedCursor from '@/components/AnimatedCursor'
+import ScrollProgress from '@/components/ScrollProgress'
+import { ThemeProvider } from '@/lib/contexts/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,14 +33,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+      <body className={`${inter.className} transition-colors duration-300 bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text`}>
+        <ThemeProvider>
+          <div className="min-h-screen flex flex-col">
+            <ScrollProgress />
+            <AnimatedCursor />
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
