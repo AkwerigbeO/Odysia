@@ -71,10 +71,10 @@ export default function Hero() {
           <div className="mt-16 animate-fade-in-delay-4">
             <p className="text-sm text-gray-500 mb-4">Trusted by leading companies</p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="w-16 h-8 bg-gray-300 rounded"></div>
-              <div className="w-16 h-8 bg-gray-300 rounded"></div>
-              <div className="w-16 h-8 bg-gray-300 rounded"></div>
-              <div className="w-16 h-8 bg-gray-300 rounded"></div>
+              <div className="text-gray-400 text-sm font-medium">TechCorp</div>
+              <div className="text-gray-400 text-sm font-medium">InnovateLab</div>
+              <div className="text-gray-400 text-sm font-medium">StartupHub</div>
+              <div className="text-gray-400 text-sm font-medium">DigitalFlow</div>
             </div>
           </div>
         </div>

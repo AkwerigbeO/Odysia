@@ -6,6 +6,22 @@ export interface ContactFormData {
   service?: string
 }
 
+export interface Service {
+  id: string
+  title: string
+  description: string
+  features: string[]
+}
+
+export interface Testimonial {
+  id: string
+  name: string
+  role: string
+  company: string
+  content: string
+  rating: number
+}
+
 export async function submitContactForm(data: ContactFormData): Promise<void> {
   // In a real application, this would send data to your backend API
   // For now, we'll simulate an API call
@@ -13,7 +29,6 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
     setTimeout(() => {
       // Simulate API call
       if (Math.random() > 0.1) { // 90% success rate
-        console.log('Contact form submitted:', data)
         resolve()
       } else {
         reject(new Error('Failed to submit form'))
@@ -22,7 +37,7 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
   })
 }
 
-export async function fetchServices(): Promise<any[]> {
+export async function fetchServices(): Promise<Service[]> {
   // In a real application, this would fetch from your API
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -31,7 +46,7 @@ export async function fetchServices(): Promise<any[]> {
   })
 }
 
-export async function fetchTestimonials(): Promise<any[]> {
+export async function fetchTestimonials(): Promise<Testimonial[]> {
   // In a real application, this would fetch from your API
   return new Promise((resolve) => {
     setTimeout(() => {
