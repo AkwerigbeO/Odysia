@@ -194,7 +194,7 @@ export default function Testimonials() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.6 }}
                       >
-                        "{testimonials[currentIndex].content}"
+                        &ldquo;{testimonials[currentIndex].content}&rdquo;
                       </motion.p>
                       
                       {/* Rating Stars */}
