@@ -30,7 +30,7 @@ export default function Hero() {
 
   return (
     <section 
-      className="relative bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-dark-bg dark:via-dark-surface dark:to-dark-card py-20 overflow-hidden min-h-screen flex items-center transition-colors duration-300"
+      className="relative bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-dark-bg dark:via-dark-surface dark:to-dark-card py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden min-h-screen flex items-center transition-colors duration-300"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -38,12 +38,12 @@ export default function Hero() {
       {/* Animated background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 dark:bg-primary-800 rounded-full opacity-20"
+          className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-40 h-40 sm:w-80 sm:h-80 bg-primary-200 dark:bg-primary-800 rounded-full opacity-20"
           variants={floating}
           animate="animate"
         />
         <motion.div 
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-300 dark:bg-primary-700 rounded-full opacity-20"
+          className="absolute -bottom-20 sm:-bottom-40 -left-20 sm:-left-40 w-40 h-40 sm:w-80 sm:h-80 bg-primary-300 dark:bg-primary-700 rounded-full opacity-20"
           variants={floating}
           animate="animate"
           transition={{ delay: 1 }}
@@ -51,20 +51,20 @@ export default function Hero() {
         
         {/* Additional floating elements */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-4 h-4 bg-primary-400 dark:bg-primary-600 rounded-full opacity-60"
+          className="absolute top-1/4 left-1/4 w-2 h-2 sm:w-4 sm:h-4 bg-primary-400 dark:bg-primary-600 rounded-full opacity-60"
           variants={floating}
           animate="animate"
           transition={{ delay: 0.5, duration: 4 }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-primary-500 dark:bg-primary-500 rounded-full opacity-40"
+          className="absolute bottom-1/4 right-1/4 w-3 h-3 sm:w-6 sm:h-6 bg-primary-500 dark:bg-primary-500 rounded-full opacity-40"
           variants={floating}
           animate="animate"
           transition={{ delay: 1.5, duration: 5 }}
         />
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div 
           className="text-center"
           variants={staggerContainer}
@@ -73,7 +73,7 @@ export default function Hero() {
         >
           {/* Logo with enhanced animation */}
           <motion.div 
-            className="flex justify-center mb-8"
+            className="flex justify-center mb-6 sm:mb-8"
             variants={staggerItem}
           >
             <motion.div
@@ -85,7 +85,7 @@ export default function Hero() {
                 alt="Odysia Logo"
                 width={200}
                 height={80}
-                className="h-32 w-auto"
+                className="h-20 w-auto sm:h-24 md:h-28 lg:h-32"
                 priority
               />
             </motion.div>
@@ -93,7 +93,7 @@ export default function Hero() {
           
           {/* Animated headline with typewriter effect */}
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             variants={fadeInUp}
           >
             {typewriterText}
@@ -108,7 +108,7 @@ export default function Hero() {
           
           {/* Animated subtitle */}
           <motion.p 
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto px-4 sm:px-0 leading-relaxed"
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
           >
@@ -117,13 +117,13 @@ export default function Hero() {
           
           {/* Feature badges with stagger animation */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4 sm:px-0"
             variants={staggerContainer}
           >
             {HERO_CONTENT.features.map((feature, index) => (
               <motion.span
                 key={feature}
-                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-dark-card text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-700 shadow-sm hover:shadow-md transition-shadow"
+                className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white dark:bg-dark-card text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-700 shadow-sm hover:shadow-md transition-shadow mobile-touch-target"
                 variants={staggerItem}
                 whileHover={{ 
                   scale: 1.05,
@@ -131,7 +131,7 @@ export default function Hero() {
                 }}
               >
                 <motion.svg 
-                  className="w-4 h-4 mr-2 text-primary-500" 
+                  className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-primary-500" 
                   fill="currentColor" 
                   viewBox="0 0 20 20"
                   animate={{ rotate: [0, 360] }}
@@ -146,17 +146,18 @@ export default function Hero() {
           
           {/* CTA Buttons with enhanced hover effects */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4 sm:px-0"
             variants={fadeInUp}
             transition={{ delay: 0.4 }}
           >
             <motion.div
               variants={buttonTap}
               whileTap="tap"
+              className="w-full sm:w-auto"
             >
               <Link
                 href="/contact"
-                className="bg-primary-600 dark:bg-primary-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block"
+                className="bg-primary-600 dark:bg-primary-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block w-full sm:w-auto text-center mobile-touch-target"
               >
                 {HERO_CONTENT.primaryCTA}
               </Link>
@@ -164,10 +165,11 @@ export default function Hero() {
             <motion.div
               variants={buttonTap}
               whileTap="tap"
+              className="w-full sm:w-auto"
             >
               <Link
                 href="/experts"
-                className="border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-600 dark:hover:bg-primary-500 hover:text-white dark:hover:text-white transform hover:scale-105 transition-all duration-200 inline-block"
+                className="border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-600 dark:hover:bg-primary-500 hover:text-white dark:hover:text-white transform hover:scale-105 transition-all duration-200 inline-block w-full sm:w-auto text-center mobile-touch-target"
               >
                 {HERO_CONTENT.secondaryCTA}
               </Link>
@@ -176,51 +178,51 @@ export default function Hero() {
           
           {/* Animated statistics */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 max-w-2xl mx-auto mb-8 sm:mb-12 px-4 sm:px-0"
             variants={fadeInUp}
             transition={{ delay: 0.6 }}
           >
             <motion.div 
-              className="text-center p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
+              className="text-center p-4 sm:p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
               whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
             >
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1 sm:mb-2">
                 {projectCount}+
               </div>
-              <div className="text-gray-600 dark:text-gray-300">Projects Completed</div>
+              <div className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Projects Completed</div>
             </motion.div>
             <motion.div 
-              className="text-center p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
+              className="text-center p-4 sm:p-6 bg-white dark:bg-dark-card rounded-xl shadow-lg"
               whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
             >
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1 sm:mb-2">
                 {successRate}%
               </div>
-              <div className="text-gray-600 dark:text-gray-300">Success Rate</div>
+              <div className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Success Rate</div>
             </motion.div>
           </motion.div>
           
           {/* Trust indicators with enhanced animation */}
           <motion.div 
-            className="mt-16"
+            className="mt-12 sm:mt-16"
             variants={fadeInUp}
             transition={{ delay: 0.8 }}
           >
             <motion.p 
-              className="text-sm text-gray-500 dark:text-gray-400 mb-4"
+              className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               Trusted by leading companies
             </motion.p>
             <motion.div 
-              className="flex justify-center items-center space-x-8 opacity-60"
+              className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 opacity-60 px-4 sm:px-0"
               variants={staggerContainer}
             >
               {['TechCorp', 'InnovateLab', 'StartupHub', 'DigitalFlow'].map((company, index) => (
                 <motion.div 
                   key={company}
-                  className="text-gray-400 dark:text-gray-500 text-sm font-medium"
+                  className="text-gray-400 dark:text-gray-500 text-xs sm:text-sm font-medium"
                   variants={staggerItem}
                   whileHover={{ 
                     scale: 1.1, 

@@ -20,7 +20,7 @@ export default function Navbar() {
       animate="visible"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0"
@@ -33,7 +33,7 @@ export default function Navbar() {
                 alt="Odysia Logo"
                 width={120}
                 height={40}
-                className="h-12 w-auto"
+                className="h-8 w-auto sm:h-10 md:h-12"
                 priority
               />
             </Link>
@@ -41,12 +41,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <motion.div 
-            className="hidden md:block"
+            className="hidden lg:block"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-6 xl:ml-10 flex items-baseline space-x-2 xl:space-x-4">
               {NAVIGATION_LINKS.map((link, index) => (
                 <motion.div
                   key={link.href}
@@ -55,7 +55,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors relative group"
+                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-2 xl:px-3 py-2 rounded-md text-sm xl:text-base font-medium transition-colors relative group mobile-touch-target"
                   >
                     {link.label}
                     <motion.div
@@ -69,9 +69,9 @@ export default function Navbar() {
             </div>
           </motion.div>
 
-          {/* CTA Buttons and Theme Toggle */}
+          {/* CTA Buttons and Theme Toggle - Desktop */}
           <motion.div 
-            className="hidden md:flex items-center space-x-4"
+            className="hidden lg:flex items-center space-x-3 xl:space-x-4"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -82,7 +82,7 @@ export default function Navbar() {
             >
               <Link
                 href="/contact"
-                className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 px-3 py-2 text-sm xl:text-base font-medium transition-colors mobile-touch-target"
               >
                 Start a Project
               </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
             >
               <Link
                 href="/experts"
-                className="bg-primary-600 dark:bg-primary-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors relative overflow-hidden group"
+                className="bg-primary-600 dark:bg-primary-500 text-white px-3 xl:px-4 py-2 rounded-md text-sm xl:text-base font-medium hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors relative overflow-hidden group mobile-touch-target"
               >
                 <motion.span
                   className="relative z-10"
@@ -119,15 +119,16 @@ export default function Navbar() {
             </motion.div>
           </motion.div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button and theme toggle */}
           <motion.div 
-            className="md:hidden flex items-center space-x-3"
+            className="lg:hidden flex items-center space-x-2 sm:space-x-3"
             whileTap={{ scale: 0.95 }}
           >
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:text-primary-600 relative"
+              className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none focus:text-primary-600 relative mobile-touch-target"
+              aria-label="Toggle mobile menu"
             >
               <motion.div
                 animate={isMenuOpen ? "open" : "closed"}
@@ -163,35 +164,40 @@ export default function Navbar() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              className="md:hidden"
+              className="lg:hidden"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <motion.div 
-                className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-dark-surface border-t border-gray-200 dark:border-dark-border"
+                className="px-4 pt-4 pb-6 space-y-2 bg-white dark:bg-dark-surface border-t border-gray-200 dark:border-dark-border"
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
               >
-                {NAVIGATION_LINKS.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    variants={staggerItem}
-                    whileHover={{ x: 5 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 block px-3 py-2 rounded-md text-base font-medium"
-                      onClick={() => setIsMenuOpen(false)}
+                {/* Navigation Links */}
+                <div className="space-y-1">
+                  {NAVIGATION_LINKS.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      variants={staggerItem}
+                      whileHover={{ x: 5 }}
                     >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.href}
+                        className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 block px-4 py-3 rounded-lg text-base font-medium mobile-touch-target transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* CTA Buttons */}
                 <motion.div 
-                  className="pt-4 space-y-2"
+                  className="pt-4 space-y-3 border-t border-gray-200 dark:border-dark-border"
                   variants={staggerContainer}
                 >
                   <motion.div
@@ -200,7 +206,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/contact"
-                      className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 block px-3 py-2 text-base font-medium"
+                      className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 block px-4 py-3 text-base font-medium mobile-touch-target transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Start a Project
@@ -212,7 +218,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/experts"
-                      className="bg-primary-600 dark:bg-primary-500 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-primary-700 dark:hover:bg-primary-600"
+                      className="bg-primary-600 dark:bg-primary-500 text-white block px-4 py-3 rounded-lg text-base font-medium hover:bg-primary-700 dark:hover:bg-primary-600 mobile-touch-target transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Join as Expert

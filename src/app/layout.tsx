@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: 'Connect with vetted tech experts for Web Development, UI/UX, and Cloud/DevOps projects. Managed end-to-end with escrow-based execution.',
   keywords: 'tech consultancy, managed tech talent, web development, UI/UX design, cloud devops, escrow platform',
   authors: [{ name: 'Odysia Team' }],
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   openGraph: {
     title: 'Odysia - Managed Tech Talent Platform',
     description: 'Connect with vetted tech experts for your next project',
@@ -33,7 +34,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} transition-colors duration-300 bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      </head>
+      <body className={`${inter.className} transition-colors duration-300 bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text antialiased`}>
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <ScrollProgress />

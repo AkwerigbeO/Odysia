@@ -5,7 +5,7 @@ import { LOGO } from '@/assets'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -19,7 +19,7 @@ export default function Footer() {
                 className="h-12 w-auto"
               />
             </div>
-            <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
+            <p className="text-gray-600 dark:text-dark-text-secondary mb-6 max-w-md leading-relaxed">
               Connecting clients with vetted tech experts through our managed platform. 
               Secure escrow-based payments and professional project management.
             </p>
@@ -28,7 +28,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                  className="text-gray-400 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-600 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-gray-600 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -75,19 +75,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-gray-200 dark:border-dark-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 dark:text-dark-text-secondary text-sm">
               © 2024 Odysia. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200">
+              <Link href="/privacy" className="text-gray-500 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 text-sm transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200">
+              <Link href="/terms" className="text-gray-500 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 text-sm transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link href="/escrow" className="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200">
+              <Link href="/escrow" className="text-gray-500 dark:text-dark-text-secondary hover:text-primary-400 dark:hover:text-primary-300 text-sm transition-colors duration-200">
                 Escrow System
               </Link>
             </div>
