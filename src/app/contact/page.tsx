@@ -31,7 +31,7 @@ export default function ContactPage() {
                       <div className="border-t border-gray-200 dark:border-dark-border pt-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-dark-text mb-4">Not sure where to start?</h2>
             <p className="text-gray-600 dark:text-dark-text-secondary mb-6 max-w-2xl mx-auto">
-              If you're unsure about your project requirements or need guidance, we offer free discovery consultations to help clarify your needs.
+              If you&apos;re unsure about your project requirements or need guidance, we offer free discovery consultations to help clarify your needs.
             </p>
             <a
               href="/contact/discovery"
