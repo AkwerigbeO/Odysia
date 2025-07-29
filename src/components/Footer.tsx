@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { FOOTER_LINKS, SOCIAL_LINKS } from '@/constants/footer'
-import { LOGO } from '@/assets'
+import Logo from '@/components/Logo'
 
 export default function Footer() {
   return (
@@ -11,12 +11,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <Image
-                src={LOGO}
-                alt="Odysia Logo"
+              <Logo
                 width={120}
                 height={40}
                 className="h-12 w-auto"
+                alt="Odysia Logo"
               />
             </div>
             <p className="text-gray-600 dark:text-dark-text-secondary mb-6 max-w-md leading-relaxed">

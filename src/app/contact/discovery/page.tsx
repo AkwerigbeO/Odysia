@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { LOGO } from '@/assets'
+import Logo from '@/components/Logo'
 
 export default function DiscoveryPage() {
   const [form, setForm] = useState({
@@ -52,25 +52,24 @@ export default function DiscoveryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-8">
-            <Image
-              src={LOGO}
-              alt="Odysia Logo"
+            <Logo
               width={180}
               height={72}
               className="h-18 w-auto"
+              alt="Odysia Logo"
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Discovery Consultation</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">Discovery Consultation</h1>
+          <p className="text-xl text-gray-600 dark:text-dark-text-secondary max-w-2xl mx-auto">
             Not sure where to start? Let&apos;s have a quick chat to understand your needs and find the right solution for you.
           </p>
         </div>
         
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div className="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-dark-border">
           {submitStatus === 'success' && (
             <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
               <div className="flex items-center">
@@ -85,65 +84,65 @@ export default function DiscoveryPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="Your full name"
-                />
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="Your full name"
+            />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="your@email.com"
-                />
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="your@email.com"
+            />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number or WhatsApp *
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="+1234567890"
-                />
+                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Phone Number or WhatsApp *
+            </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="+1234567890"
+            />
               </div>
               <div>
-                <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 mb-2">
-                  Preferred Contact Method *
-                </label>
-                <select
-                  id="contactMethod"
-                  name="contactMethod"
-                  value={form.contactMethod}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                >
+                            <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Preferred Contact Method *
+            </label>
+            <select
+              id="contactMethod"
+              name="contactMethod"
+              value={form.contactMethod}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+            >
                   <option value="">Select contact method</option>
                   <option value="whatsapp">WhatsApp</option>
                   <option value="zoom">Zoom</option>
@@ -155,33 +154,33 @@ export default function DiscoveryPage() {
             </div>
 
             <div>
-              <label htmlFor="helpNeeded" className="block text-sm font-medium text-gray-700 mb-2">
-                What do you need help with? *
-              </label>
-              <input
-                type="text"
-                id="helpNeeded"
-                name="helpNeeded"
-                value={form.helpNeeded}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                placeholder="Briefly describe what you need help with..."
-              />
+                          <label htmlFor="helpNeeded" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              What do you need help with? *
+            </label>
+            <input
+              type="text"
+              id="helpNeeded"
+              name="helpNeeded"
+              value={form.helpNeeded}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="Briefly describe what you need help with..."
+            />
             </div>
 
             <div>
-              <label htmlFor="clarity" className="block text-sm font-medium text-gray-700 mb-2">
-                How clear are you about your project or idea? *
-              </label>
-              <select
-                id="clarity"
-                name="clarity"
-                value={form.clarity}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-              >
+                          <label htmlFor="clarity" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              How clear are you about your project or idea? *
+            </label>
+            <select
+              id="clarity"
+              name="clarity"
+              value={form.clarity}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+            >
                 <option value="">Select clarity level</option>
                 <option value="very-clear">Very clear</option>
                 <option value="need-help">Need help shaping it</option>
@@ -190,7 +189,7 @@ export default function DiscoveryPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
                 What kind of tech solution do you think you might need?
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -198,16 +197,16 @@ export default function DiscoveryPage() {
                   'Website', 'Mobile App', 'UI/UX Design', 'Graphics',
                   'Backend/API', 'Tech Advice', 'Not sure'
                 ].map((option) => (
-                  <label key={option} className="flex items-center">
+                  <label key={option} className="flex items-center p-3 bg-gray-50 dark:bg-dark-surface rounded-lg border border-gray-200 dark:border-dark-border hover:bg-gray-100 dark:hover:bg-dark-card transition-colors cursor-pointer">
                     <input
                       type="checkbox"
                       name="techSolution"
                       value={option.toLowerCase().replace(/\s+/g, '-')}
                       checked={form.techSolution.includes(option.toLowerCase().replace(/\s+/g, '-'))}
                       onChange={handleChange}
-                      className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                      className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-dark-border rounded"
                     />
-                    <span className="ml-2 text-sm text-gray-700">{option}</span>
+                    <span className="ml-3 text-sm font-medium text-gray-700 dark:text-dark-text">{option}</span>
                   </label>
                 ))}
               </div>
@@ -215,63 +214,63 @@ export default function DiscoveryPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="consultationDate" className="block text-sm font-medium text-gray-700 mb-2">
-                  Preferred Consultation Date *
-                </label>
-                <input
-                  type="date"
-                  id="consultationDate"
-                  name="consultationDate"
-                  value={form.consultationDate}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                />
+                            <label htmlFor="consultationDate" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Preferred Consultation Date *
+            </label>
+            <input
+              type="date"
+              id="consultationDate"
+              name="consultationDate"
+              value={form.consultationDate}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+            />
               </div>
               <div>
-                <label htmlFor="consultationTime" className="block text-sm font-medium text-gray-700 mb-2">
-                  Preferred Consultation Time *
-                </label>
-                <input
-                  type="time"
-                  id="consultationTime"
-                  name="consultationTime"
-                  value={form.consultationTime}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                />
+                            <label htmlFor="consultationTime" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Preferred Consultation Time *
+            </label>
+            <input
+              type="time"
+              id="consultationTime"
+              name="consultationTime"
+              value={form.consultationTime}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+            />
               </div>
             </div>
 
             <div>
-              <label htmlFor="timezone" className="block text-sm font-medium text-gray-700 mb-2">
-                Timezone (Optional)
-              </label>
-              <input
-                type="text"
-                id="timezone"
-                name="timezone"
-                value={form.timezone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                placeholder="e.g. UTC+1, EST, PST"
-              />
+                          <label htmlFor="timezone" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Timezone (Optional)
+            </label>
+            <input
+              type="text"
+              id="timezone"
+              name="timezone"
+              value={form.timezone}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="e.g. UTC+1, EST, PST"
+            />
             </div>
 
             <div>
-              <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-2">
-                Extra Notes (Optional)
-              </label>
-              <textarea
-                id="notes"
-                name="notes"
-                value={form.notes}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                placeholder="Any additional information you'd like to share..."
-              />
+                          <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
+              Extra Notes (Optional)
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              value={form.notes}
+              onChange={handleChange}
+              rows={4}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
+              placeholder="Any additional information you'd like to share..."
+            />
             </div>
 
             <div>

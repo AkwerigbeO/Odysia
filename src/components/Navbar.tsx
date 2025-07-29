@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAVIGATION_LINKS } from '@/constants/navigation'
-import { LOGO } from '@/assets'
+import Logo from '@/components/Logo'
 import { fadeInDown, staggerContainer, staggerItem, hoverScale, buttonTap } from '@/lib/animations'
 import ThemeToggle from './ThemeToggle'
 
@@ -28,13 +28,11 @@ export default function Navbar() {
             whileHover="hover"
           >
             <Link href="/" className="flex items-center">
-              <Image
-                src={LOGO}
-                alt="Odysia Logo"
+              <Logo
                 width={120}
                 height={40}
                 className="h-8 w-auto sm:h-10 md:h-12"
-                priority
+                alt="Odysia Logo"
               />
             </Link>
           </motion.div>

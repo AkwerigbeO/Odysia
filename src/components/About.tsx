@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ABOUT_CONTENT } from '@/constants/about'
-import { LOGO } from '@/assets'
+import Logo from '@/components/Logo'
 
 export default function About() {
   return (
@@ -10,12 +10,11 @@ export default function About() {
           <div className="animate-fade-in order-2 lg:order-1">
             {/* Logo */}
             <div className="flex justify-center lg:justify-start mb-6">
-              <Image
-                src={LOGO}
-                alt="Odysia Logo"
+              <Logo
                 width={150}
                 height={60}
                 className="h-12 w-auto sm:h-14 md:h-16"
+                alt="Odysia Logo"
               />
             </div>
             

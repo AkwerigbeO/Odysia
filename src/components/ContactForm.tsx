@@ -38,7 +38,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+    <div className="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-dark-border">
       {submitStatus === 'success' && (
         <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
           <div className="flex items-center">
@@ -64,7 +64,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Name *
             </label>
             <input
@@ -74,13 +74,13 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
               placeholder="Your full name"
             />
           </div>
           
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Email *
             </label>
             <input
@@ -90,7 +90,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
               placeholder="your@email.com"
             />
           </div>
@@ -98,7 +98,7 @@ export default function ContactForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Company
             </label>
             <input
@@ -107,13 +107,13 @@ export default function ContactForm() {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
               placeholder="Your company name"
             />
           </div>
           
           <div>
-            <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Project Type *
             </label>
             <select
@@ -122,7 +122,7 @@ export default function ContactForm() {
               value={formData.projectType}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
             >
               <option value="">Select project type</option>
               <option value="web-development">Web Development</option>
@@ -136,7 +136,7 @@ export default function ContactForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Budget Range
             </label>
             <select
@@ -144,7 +144,7 @@ export default function ContactForm() {
               name="budget"
               value={formData.budget}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
             >
               <option value="">Select budget range</option>
               <option value="under-5k">Under $5,000</option>
@@ -155,7 +155,7 @@ export default function ContactForm() {
           </div>
           
           <div>
-            <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
               Timeline
             </label>
             <select
@@ -163,7 +163,7 @@ export default function ContactForm() {
               name="timeline"
               value={formData.timeline}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
             >
               <option value="">Select timeline</option>
               <option value="asap">ASAP</option>
@@ -176,7 +176,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-2">
             Project Details *
           </label>
           <textarea
@@ -186,7 +186,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             rows={6}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text"
             placeholder="Describe your project requirements, goals, and any specific details..."
           />
         </div>

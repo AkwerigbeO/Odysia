@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { HERO_CONTENT } from '@/constants/hero'
-import { LOGO } from '@/assets'
+import Logo from '@/components/Logo'
 import { 
   fadeInUp, 
   fadeInDown, 
@@ -80,13 +80,11 @@ export default function Hero() {
               variants={hoverScale}
               whileHover="hover"
             >
-              <Image
-                src={LOGO}
+              <Logo
+                width={240}
+                height={96}
+                className="h-24 w-auto sm:h-28 md:h-32 lg:h-36"
                 alt="Odysia Logo"
-                width={200}
-                height={80}
-                className="h-20 w-auto sm:h-24 md:h-28 lg:h-32"
-                priority
               />
             </motion.div>
           </motion.div>
