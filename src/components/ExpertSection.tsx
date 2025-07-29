@@ -1,6 +1,27 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function ExpertSection() {
+  const [form, setForm] = useState({ name: '', email: '', expertise: '', message: '' })
+  const [submitting, setSubmitting] = useState(false)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setTimeout(() => {
+      alert('Application submitted! (placeholder)')
+      setForm({ name: '', email: '', expertise: '', message: '' })
+      setSubmitting(false)
+    }, 800)
+  }
+
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50 dark:bg-dark-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,6 +64,67 @@ export default function ExpertSection() {
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Professional Support</h3>
             <p className="text-sm sm:text-base text-gray-600 dark:text-dark-text-secondary leading-relaxed">Get project management support and dispute resolution when needed.</p>
           </div>
+        </div>
+        {/* Expert Join Form */}
+        <div className="max-w-xl mx-auto mt-12 bg-white dark:bg-dark-card rounded-lg shadow-lg p-6 sm:p-8">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-dark-text mb-4 text-center">Apply to Join as an Expert</h3>
+          <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-surface dark:text-dark-text"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-surface dark:text-dark-text"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="expertise" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Expertise</label>
+              <input
+                type="text"
+                id="expertise"
+                name="expertise"
+                value={form.expertise}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-surface dark:text-dark-text"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 dark:bg-dark-surface dark:text-dark-text"
+                rows={4}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-primary-600 dark:bg-primary-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
+              disabled={submitting}
+            >
+              {submitting ? 'Submitting...' : 'Submit Application'}
+            </button>
+          </form>
         </div>
         
         <div className="text-center mt-8 sm:mt-12">

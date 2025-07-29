@@ -27,6 +27,24 @@ export default function ContactPage() {
         </div>
         
         <ContactForm />
+        
+        <div className="text-center mt-12">
+          <div className="border-t border-gray-200 pt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Not sure where to start?</h2>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              If you're unsure about your project requirements or need guidance, we offer free discovery consultations to help clarify your needs.
+            </p>
+            <a
+              href="/contact/discovery"
+              className="inline-flex items-center bg-white border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary-50 transition-colors duration-200 transform hover:scale-105"
+            >
+              Schedule Discovery Call
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
