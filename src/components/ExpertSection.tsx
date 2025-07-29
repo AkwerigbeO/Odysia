@@ -1,18 +1,21 @@
 'use client'
 
+import React, { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { useState } from 'react'
 
 export default function ExpertSection() {
   const [form, setForm] = useState({ name: '', email: '', expertise: '', message: '' })
+  const [errors, setErrors] = useState({ name: '', email: '', expertise: '', message: '' })
   const [submitting, setSubmitting] = useState(false)
+  const [success, setSuccess] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
+    setErrors((prev) => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
     setTimeout(() => {
