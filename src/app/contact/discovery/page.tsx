@@ -12,7 +12,7 @@ export default function DiscoveryPage() {
     contactMethod: '',
     helpNeeded: '',
     clarity: '',
-    techSolution: [],
+    techSolution: [] as string[],
     consultationDate: '',
     consultationTime: '',
     timezone: '',
@@ -21,9 +21,10 @@ export default function DiscoveryPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
     if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked
       setForm(prev => ({
         ...prev,
         techSolution: checked 
@@ -35,7 +36,7 @@ export default function DiscoveryPage() {
     }
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
