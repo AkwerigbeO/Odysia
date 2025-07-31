@@ -102,36 +102,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           ))}
         </motion.ul>
         
-        <motion.div 
-          className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-100 dark:border-dark-border"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <motion.button 
-            className="w-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors duration-200 group-hover:bg-primary-600 dark:group-hover:bg-primary-500 group-hover:text-white relative overflow-hidden mobile-touch-target"
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 10px 25px -5px rgba(147, 51, 234, 0.3)"
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <motion.span
-              className="relative z-10"
-              whileHover={{ x: 5 }}
-            >
-              Learn More
-            </motion.span>
-            
-            {/* Button shine effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
-            />
-          </motion.button>
-        </motion.div>
+
       </div>
       
       {/* Corner accent */}
